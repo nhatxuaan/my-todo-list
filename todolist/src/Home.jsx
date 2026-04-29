@@ -12,7 +12,15 @@ const Home = () => {
     },[])
 
 const handleEdit = (id) => {
-  axios.put('http://localhost:3001/update/'+id)
+    axios.put('http://localhost:3001/update/'+id)
+      // .then(result => console.log(result))
+      .then(result=>{
+        location.reload(result)
+      })
+      .catch(err => console.log(err))
+}
+const handleDelete = (id) => {
+    axios.delete('http://localhost:3001/delete/'+id)
       // .then(result => console.log(result))
       .then(result=>{
         location.reload(result)
@@ -41,7 +49,7 @@ const handleEdit = (id) => {
               <p className={todo.done? "line_through":""}>{todo.task}</p>
 
               <div>
-                <span><BsTrashFill className='iconTrash'/></span>
+                <span><BsTrashFill className='iconTrash' onClick = {()=>handleDelete(todo._id)}/></span>
               </div>
                 
             </div>

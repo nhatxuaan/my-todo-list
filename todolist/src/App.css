@@ -33,6 +33,10 @@
     border: 2px dashed rgb(184, 162, 62);
  }
 
+ .task p {
+    flex: 1;     
+    margin: 0;
+}
  .checkbox{
    display: flex;
    align-items: center;
@@ -49,7 +53,13 @@
    color: rgb(39, 159, 6);
 
  }
+ .checkbox .iconTrash {
+   display: flex;
+ }
 
+.line_through {
+    text-decoration: line-through;
+}
 
   .task span{
    display: flex;
