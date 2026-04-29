@@ -2,7 +2,7 @@ import React from 'react'
 import Create from './Create'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { BsCircleFill, BsTrashFill } from 'react-icons/bs'
+import { BsCircleFill, BsFillCheckCircleFill, BsTrashFill } from 'react-icons/bs'
 const Home = () => {
     const [todos, setTodos]=useState([]);
     useEffect (()=>{
@@ -10,6 +10,13 @@ const Home = () => {
       .then(result => setTodos(result.data))
       .catch(err => console.log(err))
     },[])
+
+const handleEdit = (id) => {
+  axios.put('http://localhost:3001/update/'+id)
+      .then(result => console.log(result))
+      .catch(err => console.log(err))
+}
+
   return (
     <div className='home'>
       <h2>Todo List</h2>
@@ -20,10 +27,14 @@ const Home = () => {
         :
         todos.map(todo=>(
             <div className='task'>
-              <div className='checkbox'>
-                <BsCircleFill className='icon'/>      
+              <div className='checkbox' onClick={() => handleEdit(todo._id)}>
+                {todo.done ?
+                <BsFillCheckCircleFill className='iconChecked'/>
+                :
+                <BsCircleFill className='iconUnchecked'/>   
+                }    
               </div>
-              
+
               <p>{todo.task}</p>
 
               <div>

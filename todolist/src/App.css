@@ -13,8 +13,9 @@
 
  .create_form button {
     padding: 10px;
-    background-color: black;
-    color: white;
+    background-color: rgb(255, 222, 56);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
     cursor: pointer;
  }
 
@@ -28,4 +29,33 @@
    height: 35px;
    padding: 2px 20px 2px 10px;
    margin-top: 20px;
+
+    border: 2px dashed rgb(184, 162, 62);
+ }
+
+ .checkbox{
+   display: flex;
+   align-items: center;
+   
+ }
+ .checkbox .iconUnchecked {
+   margin: 0px 5px 0px 4px;
+   color: rgb(154, 120, 47);
+    stroke: black;
+    stroke-width: 1px;
+ }
+ .checkbox .iconChecked {
+      margin: 0px 5px 0px 4px;
+   color: rgb(39, 159, 6);
+
+ }
+
+
+  .task span{
+   display: flex;
+   align-items: center;
+ }
+ .task span .icon {
+   margin: 0px 5px 0px 4px;
+   color: rgb(60, 59, 58);
  }
